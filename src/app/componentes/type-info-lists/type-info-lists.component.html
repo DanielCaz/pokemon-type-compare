@@ -8,60 +8,105 @@
       [(ngModel)]="pokemonName"
       class="form-control"
     />
+    <span *ngIf="pokemonNotFound" class="text-danger">
+      Pokemon "{{ pokemonName }}" not found
+    </span>
   </div>
-  <input type="submit" value="Buscar" class="btn btn-primary" />
+  <input type="submit" value="Submit" class="btn btn-primary" />
+  <button type="button" class="btn btn-danger ms-3" (click)="resetData()">
+    Reset
+  </button>
 </form>
-<h2 class="my-1">Recibe doble daño de</h2>
+<h2 *ngIf="pokemonTypes.length > 0">Types</h2>
 <ul class="list-group">
   <li
-    *ngFor="let item of pokemonTypeData.damage_relations.double_damage_from"
-    class="list-group-item"
+    *ngFor="let type of pokemonTypes"
+    class="list-group-item type type-{{ type }}"
   >
-    {{ item.name }}
+    {{ type }}
   </li>
 </ul>
-<h2 class="my-1">Hace doble daño contra</h2>
+<h2
+  *ngIf="pokemonTypeData.damage_relations.double_damage_from.length > 0"
+  class="my-1"
+>
+  Double damage from
+</h2>
 <ul class="list-group">
   <li
-    *ngFor="let item of pokemonTypeData.damage_relations.double_damage_to"
-    class="list-group-item"
+    *ngFor="let type of pokemonTypeData.damage_relations.double_damage_from"
+    class="list-group-item type type-{{ type.name.toLowerCase() }}"
   >
-    {{ item.name }}
+    {{ type.name }}
   </li>
 </ul>
-<h2 class="my-1">Recibe mitad de daño de</h2>
+<h2
+  *ngIf="pokemonTypeData.damage_relations.double_damage_to.length > 0"
+  class="my-1"
+>
+  Double damage to
+</h2>
 <ul class="list-group">
   <li
-    *ngFor="let item of pokemonTypeData.damage_relations.half_damage_from"
-    class="list-group-item"
+    *ngFor="let type of pokemonTypeData.damage_relations.double_damage_to"
+    class="list-group-item type type-{{ type.name.toLowerCase() }}"
   >
-    {{ item.name }}
+    {{ type.name }}
   </li>
 </ul>
-<h2 class="my-1">Hace la mitad de daño contra</h2>
+<h2
+  *ngIf="pokemonTypeData.damage_relations.half_damage_from.length > 0"
+  class="my-1"
+>
+  Half damage from
+</h2>
 <ul class="list-group">
   <li
-    *ngFor="let item of pokemonTypeData.damage_relations.half_damage_from"
-    class="list-group-item"
+    *ngFor="let type of pokemonTypeData.damage_relations.half_damage_from"
+    class="list-group-item type type-{{ type.name.toLowerCase() }}"
   >
-    {{ item.name }}
+    {{ type.name }}
   </li>
 </ul>
-<h2 class="my-1">No recibe daño de</h2>
+<h2
+  *ngIf="pokemonTypeData.damage_relations.half_damage_to.length > 0"
+  class="my-1"
+>
+  Half damage to
+</h2>
 <ul class="list-group">
   <li
-    *ngFor="let item of pokemonTypeData.damage_relations.no_damage_from"
-    class="list-group-item"
+    *ngFor="let type of pokemonTypeData.damage_relations.half_damage_to"
+    class="list-group-item type type-{{ type.name.toLowerCase() }}"
   >
-    {{ item.name }}
+    {{ type.name }}
   </li>
 </ul>
-<h2 class="my-1">No hace daño a</h2>
+<h2
+  *ngIf="pokemonTypeData.damage_relations.no_damage_from.length > 0"
+  class="my-1"
+>
+  No damage to
+</h2>
 <ul class="list-group">
   <li
-    *ngFor="let item of pokemonTypeData.damage_relations.no_damage_from"
-    class="list-group-item"
+    *ngFor="let type of pokemonTypeData.damage_relations.no_damage_from"
+    class="list-group-item type type-{{ type.name.toLowerCase() }}"
   >
-    {{ item.name }}
+    {{ type.name }}
+  </li>
+</ul>
+<h2
+  *ngIf="pokemonTypeData.damage_relations.no_damage_to.length > 0"
+  class="my-1"
+>
+  No damage to
+</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let type of pokemonTypeData.damage_relations.no_damage_to"
+    class="list-group-item type type-{{ type.name.toLowerCase() }}"
+  >
+    {{ type.name }}
   </li>
 </ul>
