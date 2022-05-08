@@ -1,6 +1,6 @@
 # Pokemon Type Compare
 
-Compares the type information of two pokemon made in AngularJS
+Compares the type information of two pokemon made in AngularJS with the help of the PokeAPI
 
 ## Quick start
 
