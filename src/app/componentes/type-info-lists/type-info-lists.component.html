@@ -1,0 +1,67 @@
+<form (ngSubmit)="getData()" class="my-3 border rounded p-4">
+  <div class="mb-3">
+    <label for="pokemonName" class="form-label">Pokemon</label>
+    <input
+      type="text"
+      name="pokemon"
+      id="pokemonName"
+      [(ngModel)]="pokemonName"
+      class="form-control"
+    />
+  </div>
+  <input type="submit" value="Buscar" class="btn btn-primary" />
+</form>
+<h2 class="my-1">Recibe doble daño de</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let item of pokemonTypeData.damage_relations.double_damage_from"
+    class="list-group-item"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<h2 class="my-1">Hace doble daño contra</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let item of pokemonTypeData.damage_relations.double_damage_to"
+    class="list-group-item"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<h2 class="my-1">Recibe mitad de daño de</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let item of pokemonTypeData.damage_relations.half_damage_from"
+    class="list-group-item"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<h2 class="my-1">Hace la mitad de daño contra</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let item of pokemonTypeData.damage_relations.half_damage_from"
+    class="list-group-item"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<h2 class="my-1">No recibe daño de</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let item of pokemonTypeData.damage_relations.no_damage_from"
+    class="list-group-item"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<h2 class="my-1">No hace daño a</h2>
+<ul class="list-group">
+  <li
+    *ngFor="let item of pokemonTypeData.damage_relations.no_damage_from"
+    class="list-group-item"
+  >
+    {{ item.name }}
+  </li>
+</ul>
