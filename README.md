@@ -6,7 +6,7 @@ Compares the type information of two pokemon made in AngularJS with the help of 
 
 ```bash
 # clone repo
-https://github.com/DanielCaz/pokemon-type-compare.git
+git clone https://github.com/DanielCaz/pokemon-type-compare.git
 
 # change directory to the repo
 cd pokemon-type-compare
