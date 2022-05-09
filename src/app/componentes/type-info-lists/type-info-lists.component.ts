@@ -11,8 +11,10 @@ import { HttpClient } from '@angular/common/http';
 export class TypeInfoListsComponent implements OnInit {
   pokemonTypeData: PokemonType = this.initData();
   pokemonName!: string;
-  pokemonTypes: string[] = [];
+  pokemonTypes: { name: string }[] = [];
   pokemonNotFound = false;
+
+  apiUrl = 'https://pokeapi.co/api/v2/';
 
   constructor(private http: HttpClient) {}
 
@@ -27,13 +29,11 @@ export class TypeInfoListsComponent implements OnInit {
     this.pokemonName = this.pokemonName.trim();
 
     this.http
-      .get<Pokemon>(
-        `https://pokeapi.co/api/v2/pokemon/${this.pokemonName.toLowerCase()}`
-      )
+      .get<Pokemon>(`${this.apiUrl}pokemon/${this.pokemonName.toLowerCase()}`)
       .subscribe(
         (pokemonData) => {
           pokemonData.types.forEach((type) => {
-            this.pokemonTypes.push(type.type.name);
+            this.pokemonTypes.push({ name: type.type.name });
           });
           this.http
             .get<PokemonType>(pokemonData.types[0].type.url)
@@ -80,6 +80,7 @@ export class TypeInfoListsComponent implements OnInit {
         no_damage_from: [],
         no_damage_to: [],
       },
+      pokemon: [],
     };
   }
 
