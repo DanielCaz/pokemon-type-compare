@@ -4,12 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { TypeInfoListsComponent } from './componentes/type-info-lists/type-info-lists.component';
-import { HeaderComponent } from './componentes/header/header.component';
-import { TypeListComponent } from './componentes/type-list/type-list.component';
+import { TypeInfoListsComponent } from './components/type-info-lists/type-info-lists.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, TypeInfoListsComponent, HeaderComponent, TypeListComponent],
+  declarations: [AppComponent, TypeInfoListsComponent, HeaderComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
